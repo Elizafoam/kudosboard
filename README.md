@@ -2,7 +2,7 @@
 
 ## Unit Assignment: Kudos Board
 
-Submitted by: **NAME**
+Submitted by: **Evelyn Zhinin, Maria Perez Chaparro, Elizabeth Johnson**
 
 Deployed Application (optional): [Kudos Board Deployed Site](ADD_LINK_HERE)
 
