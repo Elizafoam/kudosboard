@@ -1,14 +1,4 @@
-//Work in progress
-
-
-
-
-
-
-
-
-
-/*const express = require("express");
+const express = require("express");
 const router = express.Router();
 const boardController = require("../controller/boardController");
 
@@ -19,7 +9,7 @@ router.put("/:board_id", boardController.updateBoard);
 router.delete("/:board_id", boardController.deleteBoard);
 router.post("/:board_id/cards", boardController.addCards);
 
-module.exports = router;*/
+module.exports = router;
 
 
 
