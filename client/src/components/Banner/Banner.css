@@ -1,0 +1,12 @@
+.Banner {
+    margin: auto;
+    padding: 18rem 10rem;
+    background-image: url("/src/assets/banner.jpg");
+    background-position: top;
+    background-size: cover;
+    border-radius: 2rem;
+}
+
+.Banner .text {
+    color: white;
+}
