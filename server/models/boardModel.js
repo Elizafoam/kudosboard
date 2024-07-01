@@ -62,5 +62,5 @@ module.exports = {
   updateBoard,
   deleteBoard,
   addCardToBoard,
-}
+};
 
