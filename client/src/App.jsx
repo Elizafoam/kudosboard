@@ -4,13 +4,14 @@ import viteLogo from '/vite.svg'
 import './App.css';
 import Banner from './components/Banner/Banner';
 import CardGrid from './components/CardGrid/CardGrid';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
     <div className='App'>
       <Banner/>
       <CardGrid/>
-      
+      <Footer />
     </div>
   )
 }
