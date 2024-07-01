@@ -1,0 +1,33 @@
+.Card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 200px;
+    gap: 0.5rem;
+    padding-bottom: 0.75rem;
+    background-color: #a8bdbd;
+    border-radius: 2rem 2rem 1rem 1rem;
+}
+
+.Card img {
+    border-radius: 1rem 1rem 0 0;
+    width: 200px;
+}
+
+.Card * {
+    margin: 0;
+}
+
+.Card .button {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.Card button {
+    background-color: rgb(255, 117, 42);
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    color: white;
+}
