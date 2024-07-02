@@ -1,24 +1,18 @@
-import React from "react";
-import Modal from '../NewBoard/NewBoard';
+import './BoardPage.css';
+import NavBar from '../NavBar/NavBar'
+import Banner from '../Banner/Banner';
+import BoardGrid from '../BoardGrid/BoardGrid';
+import Footer from '../Footer/Footer';
 
-const BoardPage = ({ handleOpenModal, modalOpen, handleSubmit, handleCloseModal, title, setTitle, author, setAuthor, category, setCategory }) => {
-    return (
-        <div>
-            <button className='button-link' onClick={handleOpenModal}>Create New Board</button>
-            {modalOpen && (
-                <Modal
-                    onSubmit={handleSubmit}
-                    closeModal={handleCloseModal}
-                    title={title}
-                    setTitle={setTitle}
-                    author={author}
-                    setAuthor={setAuthor}
-                    category={category}
-                    setCategory={setCategory}
-                />
-            )}
-        </div>
-    );
+const BoardPage = () => {
+  return (
+    <div className='BoardPage'>
+      <NavBar />
+      <Banner/>
+      <BoardGrid/>
+      <Footer />
+    </div>
+  )
 }
 
 export default BoardPage;

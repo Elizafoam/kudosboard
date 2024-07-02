@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './NavBar.css';
-import BoardPage from '../BoardPage/BoardPage';
+import Modal from '../NewBoard/NewBoard';
 import axios from 'axios';
 
 const Navbar = () => {
@@ -52,11 +52,12 @@ const Navbar = () => {
                 <img src="src/assets/glass.png" alt="Search" className='search-icon' />
             </div>
             <div>
-                <BoardPage 
-                    handleOpenModal={handleOpenModal}
-                    modalOpen={modalOpen}
-                    handleSubmit={handleSubmit}
-                    handleCloseModal={handleCloseModal}
+            <div>
+            <button className='button-link' onClick={handleOpenModal}>Create New Board</button>
+            {modalOpen && (
+                <Modal
+                    onSubmit={handleSubmit}
+                    closeModal={handleCloseModal}
                     title={title}
                     setTitle={setTitle}
                     author={author}
@@ -64,6 +65,8 @@ const Navbar = () => {
                     category={category}
                     setCategory={setCategory}
                 />
+            )}
+        </div>
             </div>
         </nav>
     );
