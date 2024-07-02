@@ -1,7 +1,7 @@
 import React from "react";
-import "./modal.css";
+import "./NewCard.css";
 
-export const Modal = ({ onSubmit, closeModal, title, setTitle, author, setAuthor, category, setCategory }) => {
+export const NewCard = ({ onSubmit, closeModal, title, setTitle, description, setDescription, gif, setGi}) => {
   return (
     <div
       className="modal-container"
@@ -65,4 +65,4 @@ export const Modal = ({ onSubmit, closeModal, title, setTitle, author, setAuthor
   );
 };
 
-export default Modal;
+export default NewBoard;
