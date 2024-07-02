@@ -2,7 +2,16 @@ import React from 'react';
 import './navbar.css';
 
 
+
 const Navbar = () => {
+    const [modalOpen, setModalOpen] = useState(false);
+    const [message, setMessage] = useState("");
+
+    const handleButtonClick = (value) => {
+        setModalOpen(false);
+        setMessage(value);
+    };
+
     return (
         <nav>
             <div className='nav'>
