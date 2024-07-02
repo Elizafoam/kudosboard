@@ -3,9 +3,6 @@ import React, {useState,useEffect} from 'react';
 import './navbar.css';
 import Modal from '../modal/modal';
 
-
-
-
 const Navbar = () => {
     const [modalOpen, setModalOpen] = useState(false);
     const [title, setTitle] = useState("");

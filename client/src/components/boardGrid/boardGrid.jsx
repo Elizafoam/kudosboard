@@ -1,14 +1,14 @@
 import React from "react";
 import "./boardGrid.css";
-import board from '../board/board';
+import Board from '../board/board';
 
 const boardGrid = () => {
     return (
         <div className="boardGrid">
-            <board />
-            <board />
-            <board />
-            <board />
+            <Board />
+            <Board />
+            <Board />
+            <Board />
         </div>
     )
 }
