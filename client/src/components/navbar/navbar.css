@@ -7,22 +7,34 @@
   }
   
   nav {
-    background-color: #333;
+    background-color: #003049;
     color: white;
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Align items vertically in the center */
+    align-items: center; 
     padding: 0 1rem;
-    height: 4rem; /* Adjust height of navbar as needed */
+    height: 4rem; 
   }
   
   .nav {
+    width: 100%;
     display: flex;
     align-items: center;
   }
   
   .weblogo {
-    font-size: 2rem;
+    height:3.5rem;
+    width: 3.5rem;
+    /* border: 2px solid green; */
+    padding: 2px 0px
+
+  }
+  .navtext{
+    /* border: 2px solid green; */
+    
+    padding-top: 8px;
+    font-size: 25px;
+    font-family: fantasy;
   }
   
   .nav ul {
@@ -51,14 +63,14 @@
   .search-box {
     display: flex;
     align-items: center; /* Align items vertically */
-    margin-left: auto; /* Push search box to the right */
+    margin-left: auto; 
   }
   
   .search-box input {
     padding: 0.5rem;
     border: none;
-    border-radius: 4px;
-    margin-right: 0.5rem;
+    /* border-radius: 4px; */
+    /* margin-right: 0.5rem; */
 
   }
   
@@ -70,21 +82,27 @@
     cursor: pointer; 
     height: 2rem;
     width: 2rem;
-    background-color: white;
+    background-color: #236A90;
   }
   
   .button-link {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: #007bff;
+    display: inline-flex;
+    line-height: 25px;
+    
+    align-items: center;
+    padding: 5px 20px;
+    background-color: #C1121F;
     color: white;
     text-align: center;
     border: none;
     border-radius: 4px;
     text-decoration: none;
     transition: background-color 0.3s;
+    white-space: nowrap; /* Prevents wrapping onto multiple lines */
+    /* overflow: hidden; 
+    text-overflow: ellipsis;  */
   }
   
   .button-link:hover {
-    background-color: #0056b3;
+    background-color: #669BBC;
   }
