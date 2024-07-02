@@ -1,0 +1,33 @@
+.board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 200px;
+    gap: 0.5rem;
+    padding-bottom: 0.75rem;
+    background-color: #a8bdbd;
+    border-radius: 2rem 2rem 1rem 1rem;
+}
+
+.board img {
+    border-radius: 1rem 1rem 0 0;
+    width: 200px;
+}
+
+.board * {
+    margin: 0;
+}
+
+.board .button {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.board button {
+    background-color: rgb(255, 117, 42);
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    color: white;
+}
