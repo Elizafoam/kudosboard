@@ -1,6 +1,8 @@
+import axios from "axios";
 import React, {useState,useEffect} from 'react';
 import './navbar.css';
 import Modal from '../modal/modal';
+
 
 
 
@@ -13,18 +15,37 @@ const Navbar = () => {
 
     const handleOpenModal =() =>{
         setModalOpen(true)
+        //addBoard()
     }
+
+    const handleSubmit =() =>{
+        console.log("Submitting with:", { title, author, category });
+        addBoard(); // Call your API function here or do any necessary processing
+        handleCloseModal(); // Close modal after submit
+    }
+
+    const addBoard = async () => {
+        try {
+            let boardData = {
+                title: title,
+                category: category,
+                author: author,
+            }
+            const response = await axios.post("http://localhost:3000/boards", boardData);
+            console.log("Board created:", response.data);
+            // Handle success (e.g., update state, show success message)
+        } catch (error) {
+            console.error("Error creating board:", error);
+            // Handle error (e.g., show error message)
+        }
+    }
+
 
     const handleCloseModal = (message) =>{
         setModalOpen(false);
         setTitle("");
         setAuthor("");
         setCategory("");
-    }
-
-    const handleSubmit = (message) => {
-        console.log(message, { title, author, category });
-        handleCloseModal("Modal was closed after submit");
     }
 
     return (
