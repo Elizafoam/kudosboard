@@ -5,10 +5,13 @@ import './App.css';
 import Banner from './components/Banner/Banner';
 import CardGrid from './components/CardGrid/CardGrid';
 import Footer from './components/Footer/Footer';
+import NavBar from './components/navbar/navbar';
+import Header from './components/Header/Header';
 
 function App() {
   return (
     <div className='App'>
+      <NavBar/>
       <Banner/>
       <CardGrid/>
       <Footer />
