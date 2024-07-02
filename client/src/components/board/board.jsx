@@ -1,7 +1,7 @@
 import React from "react";
-import "./board.css";
+import "./Board.css";
 
-const board = () => {
+const Board = () => {
     return (
         <div className="board">
             <img src="/src/assets/spongebob.gif" alt="card image" />
@@ -15,4 +15,4 @@ const board = () => {
     )
 }
 
-export default board;
+export default Board;
