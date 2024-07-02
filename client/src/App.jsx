@@ -6,13 +6,14 @@ import NavBar from './components/navbar/navbar';
 import Banner from './components/Banner/Banner';
 import CardGrid from './components/CardGrid/CardGrid';
 import Footer from './components/Footer/Footer';
+import boardGrid from './components/boardGrid/boardGrid';
 
 function App() {
   return (
     <div className='App'>
       <NavBar />
       <Banner/>
-      <CardGrid/>
+      <boardGrid/>
       <Footer />
     </div>
   )
