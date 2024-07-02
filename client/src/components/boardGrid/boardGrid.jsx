@@ -1,8 +1,9 @@
 import React from "react";
-import "./boardGrid.css";
-import Board from '../Board/Board';
+import "./BoardGrid.css";
+import Board from "../Board/Board";
+// import Board from "../board/board";
 
-const boardGrid = () => {
+const BoardGrid = () => {
     return (
         <div className="boardGrid">
             <Board />
@@ -13,4 +14,4 @@ const boardGrid = () => {
     )
 }
 
-export default boardGrid;
+export default BoardGrid;

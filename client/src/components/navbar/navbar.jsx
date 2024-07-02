@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './navbar.css';
+import './NavBar.css';
 import BoardPage from '../BoardPage/BoardPage';
 import axios from 'axios';
 
