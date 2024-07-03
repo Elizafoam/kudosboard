@@ -1,5 +1,5 @@
 .BoardPage{
-    background-color: aquamarine;
+    background-color: #F0EFEB;
 }
 .board-container{
   margin-top: 1rem;
@@ -59,6 +59,7 @@
     font-size: 16px;
     margin-bottom: 20px;
     cursor: pointer;
+   
   }
 
 .category-buttons {
@@ -67,6 +68,7 @@
   align-items: center;
   gap:10px;
   
+  
 }
 .category-button {
     padding: 10px 20px;
@@ -74,4 +76,12 @@
     margin-bottom: 10px;
     cursor: pointer;
     border-radius: 2rem;
+    border-color: #B7B7A4;
+    background-color: #B8A8A5;
+    color: #66575A;
+    font-weight: bold;
+    
   }
+  .category-button:hover{
+    transform: scale(1.05);
+}

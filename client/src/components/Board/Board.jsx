@@ -24,15 +24,16 @@ const Board = ({ board_id, title, category, author }) => {
   
     return (
       <div className="board">
+        <h1 className="boardtitle">{title}</h1>
           <img src={`https://picsum.photos/200/300?random=${board_id}`} alt="card image" />
-          <h1>{title}</h1>
-          <p>{category}</p>
-          <p>By: {author}</p>
+          
+          <p className="boardCategory">{category}</p>
+          <p className="boardAuthor">By: {author}</p>
           <div className="button">
               <Link to={`boards/${board_id}`} onClick={() => console.log("switch")}>
-                <button>View Board</button>
+                <button className="buttonTitle">View</button>
                 </Link>
-            <button onClick={handleDelete}>Delete Board</button>
+            <button className="buttonTitle" onClick={handleDelete}>Delete</button>
           </div>
       </div>
     );
