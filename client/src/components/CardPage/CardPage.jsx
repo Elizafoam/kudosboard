@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from "axios"
 import './CardPage.css';
 import { useParams } from 'react-router-dom';
 import NavBar from '../NavBar/NavBar';
@@ -12,6 +13,21 @@ const CardPage = () => {
   const [cards, setCards] = useState([]);
   const { board_id } = useParams();
 
+  const populateCards = async (params = {}) => {
+    try {
+      const response = await axios.get(`http://localhost:3000/boards/${board_id}/cards`, {params});
+      setCards(response.data);
+      console.log(cards);
+    }
+    catch (error){
+      console.log("Error fetching board cards", error);
+    }
+  }
+
+  useEffect(() => {
+    populateCards();
+      
+  }, []);
 
 
   const handleOpenModal = () => {
