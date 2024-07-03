@@ -24,7 +24,7 @@ const Board = ({ board_id, title, category, author }) => {
   
     return (
       <div className="board">
-          <img src="/src/assets/spongebob.gif" alt="card image" />
+          <img src={`https://picsum.photos/200/300?random=${board_id}`} alt="card image" />
           <h1>{title}</h1>
           <p>{category}</p>
           <p>By: {author}</p>
