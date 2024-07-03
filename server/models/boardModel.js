@@ -90,6 +90,26 @@ const getCardsInBoard = async (board_id) => {
   return cards;
 };
 
+const upvoteCard = async (board_id, card_id) => {
+  const updatedCard = await prisma.card.update({
+    where: {
+      board_id_card_id: {
+        board_id: parseInt(board_id),
+        card_id: parseInt(card_id)
+      }
+    },
+    data: {
+      upvotes: {
+        increment: 1 // Increment upvotes by 1
+      }
+    },
+    include: {
+      board: true
+    }
+  });
+  return updatedCard;
+};
+
 
 
 module.exports = {
@@ -100,6 +120,7 @@ module.exports = {
   deleteBoard,
   addCardToBoard,
   deleteCardFromBoard,
-  getCardsInBoard
+  getCardsInBoard,
+  upvoteCard
 };
 

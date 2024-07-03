@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./NewCard.css";
 
-const NewCard = ({ onSubmit, closeModal }) => {
+const NewCard = ({ onSubmit, closeModal, board_id }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [gif, setGif] = useState("");
-  const [owner, setOwner] = useState("");
+  const [img_url, setImgUrl] = useState("");
+  const [author, setAuthor] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [gifOptions, setGifOptions] = useState([]);
   const [selectedGifUrl, setSelectedGifUrl] = useState("");
 
-  const apiKey = import.meta.env.GIPHY_API_KEY;
+  const apiKey = import.meta.env.VITE_GIPHY_API_KEY;
 
   const handleSearch = async () => {
     try {
@@ -19,69 +19,124 @@ const NewCard = ({ onSubmit, closeModal }) => {
         params: {
           api_key: apiKey,
           q: searchTerm,
-          limit: 10,
+          limit: 6,
         },
       });
 
-      setGifOptions(response.data.data);
+      const gifData = response.data.data;
+      const gifUrls = gifData.map((gif) => gif.images.original.url);
+      setGifOptions(gifUrls);
     } catch (error) {
       console.error("Error searching for GIFs:", error);
-    
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSelectGif = (gifUrl) => {
+    setSelectedGifUrl(gifUrl);
+    setImgUrl(gifUrl);
+    setGifOptions([]);
+  };
+
+  const handleCopyGifUrl = () => {
+    setImgUrl(selectedGifUrl);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
     if (!title || !description || !selectedGifUrl) {
       alert("Please fill out all required fields.");
       return;
     }
-    onSubmit({ title, description, gif: selectedGifUrl, owner });
-    setTitle("");
-    setDescription("");
-    setGif("");
-    setOwner("");
-    closeModal();
+
+    try {
+      const response = await axios.post(
+        `http://localhost:3000/boards/${board_id}/cards`,
+        {
+          title,
+          description,
+          img_url,
+          author,
+        }
+      );
+      const newCard = response.data;
+      onSubmit(newCard);
+      setTitle("");
+      setDescription("");
+      setImgUrl("");
+      setAuthor("");
+      closeModal();
+    } catch (error) {
+      console.error("Error creating card:", error);
+    }
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Title:</label>
-          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required />
-        </div>
-        <div>
-          <label>Description:</label>
-          <textarea value={description} onChange={(e) => setDescription(e.target.value)} required />
-        </div>
-        <div>
-          <label>Owner (optional):</label>
-          <input type="text" value={owner} onChange={(e) => setOwner(e.target.value)} />
-        </div>
-        <div>
-          <label>Search GIF:</label>
-          <input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
-          <button type="button" onClick={handleSearch}>
-            Search
-          </button>
-        </div>
-        <div>
-          {gifOptions.map((gif) => (
-            <img
-              key={gif.id}
-              src={gif.images.fixed_height.url}
-              alt={gif.title}
-              onClick={() => setSelectedGifUrl(gif.images.fixed_height.url)}
-              style={{
-                cursor: "pointer",
-                border: selectedGifUrl === gif.images.fixed_height.url ? "2px solid blue" : "none",
-              }}
-            />
-          ))}
-        </div>
-        <button type="submit">Create Card</button>
-      </form>
+    <div className="overlay">
+      <div className="new-card-form">
+        <button className="close-btn" onClick={closeModal}>
+          X
+        </button>
+        <h2>Create a New Card</h2>
+        <input
+          type="text"
+          placeholder="Enter card title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Enter card description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Search GIFs..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <button className="search-button" type="button" onClick={handleSearch}>
+          Search
+        </button>
+        {gifOptions.length > 0 && (
+          <div className="gif-options">
+            {gifOptions.map((gifUrl) => (
+              <div className="gif-container" key={gifUrl}>
+                <img
+                  className="gif"
+                  src={gifUrl}
+                  alt="GIF"
+                  onClick={() => handleSelectGif(gifUrl)}
+                />
+              </div>
+            ))}
+          </div>
+        )}
+        <input
+          type="text"
+          placeholder="Enter GIF URL"
+          value={img_url}
+          onChange={(e) => setImgUrl(e.target.value)}
+        />
+        <button
+          className="copy-button"
+          type="button"
+          onClick={handleCopyGifUrl}
+        >
+          Copy GIF URL
+        </button>
+        <input
+          type="text"
+          placeholder="Enter author (optional)"
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
+        />
+        <button className="submit" onClick={handleSubmit}>
+          Create Card
+        </button>
+      </div>
     </div>
   );
 };

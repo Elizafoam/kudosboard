@@ -3,7 +3,7 @@ import './NavBar.css';
 import Modal from '../NewBoard/NewBoard';
 import axios from 'axios';
 
-const Navbar = () => {
+const NavBar = () => {
     const [modalOpen, setModalOpen] = useState(false);
     const [title, setTitle] = useState("");
     const [author, setAuthor] = useState("");
@@ -72,4 +72,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default NavBar;

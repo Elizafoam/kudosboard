@@ -103,6 +103,16 @@ const getCardsIn = async (req, res) => {
   }
 };
 
+const upvoteCardNow = async (req, res) => {
+  try {
+    const { board_id, card_id } = req.params;
+    const updatedCard = await boardModel.upvoteCard(board_id, card_id);
+    res.status(200).json(updatedCard);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
 
 
 
@@ -114,5 +124,6 @@ module.exports = {
   deleteBoard,
   addCards,
   deleteCards,
-  getCardsIn
+  getCardsIn,
+  upvoteCardNow
 };
