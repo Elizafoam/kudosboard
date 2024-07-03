@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios"
 import './CardPage.css';
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import NavBar from '../NavBar/NavBar';
 import Banner from '../Banner/Banner';
@@ -46,6 +47,9 @@ const CardPage = () => {
 
 return (
   <div className='CardPage'>
+    <Link to={"/"} onClick={() => console.log("switch")}>
+                <button>View Board</button>
+    </Link>
     <NavBar />
     <Banner />
     {/* <Link to="/">
