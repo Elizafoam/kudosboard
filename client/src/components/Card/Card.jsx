@@ -27,6 +27,7 @@ import "./Card.css";
 
 const Card = ({ title, description, img_url, author, card_id }) => {
   const [deleted, setDeleted] = useState(false);
+  const [upvoted, setUpvoted] = useState(false)
 
   const handleDelete = async () => {
     try {
@@ -39,6 +40,22 @@ const Card = ({ title, description, img_url, author, card_id }) => {
     }
   };
 
+  //maybe
+  const handleUpvote = async () => {
+    try {
+      const response = await axios.put(`http://localhost:3000/boards/${card_id}/upvote`);
+      console.log("Card upvoted:", response.data);
+      setUpvoted(true); // Update local state to reflect upvote
+    } catch (error) {
+      console.error("Error upvoting card:", error);
+      // Handle error state or notify user of upvote failure
+    }
+  };
+
+
+
+
+
   if (deleted) {
     return null; // Hide the card if it has been deleted
   }
@@ -50,7 +67,9 @@ const Card = ({ title, description, img_url, author, card_id }) => {
       <img src={img_url} alt="GIF" />
       <p>{author}</p>
       <div className="button">
-        <button>Upvote</button>
+      <button onClick={handleUpvote} disabled={upvoted}>
+          {upvoted ? "Upvoted" : "Upvote"}
+        </button>
         <button onClick={handleDelete}>Delete</button>
       </div>
     </div>
