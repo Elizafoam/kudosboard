@@ -5,7 +5,7 @@ import "./NewCard.css";
 const NewCard = ({ onSubmit, closeModal }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [gif, setGif] = useState("");
+  // const [gif, setGif] = useState("");
   const [owner, setOwner] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [gifOptions, setGifOptions] = useState([]);
@@ -49,19 +49,19 @@ const NewCard = ({ onSubmit, closeModal }) => {
       <form onSubmit={handleSubmit}>
         <div>
           <label>Title:</label>
-          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required />
+          <input type="text" placeholder="Enter Title" value={title} onChange={(e) => setTitle(e.target.value)} required />
         </div>
         <div>
           <label>Description:</label>
-          <textarea value={description} onChange={(e) => setDescription(e.target.value)} required />
+          <textarea value={description} placeholder="Enter Description" onChange={(e) => setDescription(e.target.value)} required />
         </div>
         <div>
           <label>Owner (optional):</label>
-          <input type="text" value={owner} onChange={(e) => setOwner(e.target.value)} />
+          <input type="text" placeholder="Enter Owner" value={owner} onChange={(e) => setOwner(e.target.value)} />
         </div>
         <div>
           <label>Search GIF:</label>
-          <input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+          <input type="text" placeholder="Search Gifs" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
           <button type="button" onClick={handleSearch}>
             Search
           </button>
@@ -87,3 +87,5 @@ const NewCard = ({ onSubmit, closeModal }) => {
 };
 
 export default NewCard;
+
+
