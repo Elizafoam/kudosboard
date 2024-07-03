@@ -7,7 +7,12 @@ import Footer from '../Footer/Footer';
 import Board from "../Board/Board";
 
 const BoardPage = () => {
-    const [boards, setBoards] = useState({})
+    // const [boards, setBoards] = useState({})
+    const [boards, setBoards] = useState([]) //made into array instead of object to not cause dependency issues
+    //implementing search functionality and filtering
+    const [searchQuery, setSearchQuery] = useState("")
+    const [selectedCategory, setSelectedCategory] = useState("")
+
 
     const populateBoards = async (params = {}) => {
         try {
@@ -23,15 +28,66 @@ const BoardPage = () => {
     useEffect(() => {
         populateBoards();
         
-      }, [boards]);
+      }, []);
+
+    //handling the category filter
+    const handleCategoryFilter = (category) => {
+      setSelectedCategory(category);
+    }  
+
+    //implementation of search
+
+    const filteredBoards = boards.filter(board => {
+      const matchesSearchQuery = board.title.toLowerCase().includes(searchQuery.toLowerCase());
+      const matchesCategory = selectedCategory === "" || board.category.toLowerCase() === selectedCategory.toLowerCase();
+      return matchesSearchQuery && matchesCategory;
+  });
+  
+
+  
     
     
 
   return (
     <div className='BoardPage'>
+      
       <NavBar />
       <Banner/>
+      <h1 style={{ color: 'black' }}>BOARD PAGE</h1>
+      {/* the search function */}
+      <main className="search">
+        <input
+          type="text"
+          placeholder="Search boards..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          />
+      </main>
+      <div className="category-buttons">
+        <button className="category-button" onClick={() => handleCategoryFilter("")}>All</button>
+        <button className="category-button" onClick={() => handleCategoryFilter("Recent")}>Recent</button>
+        <button className="category-button" onClick={() => handleCategoryFilter("Celebration")}> Celebration</button>
+        <button className="category-button" onClick={() => handleCategoryFilter("Thank You")}>Thank You</button>
+        <button className="category-button" onClick={() => handleCategoryFilter("Inspiration")}>Inspiration</button>
+      </div>
+
+      {/* code below was added to perform the search functionality */}
       <div className="b">
+                <div className="boardGrid">
+                    {filteredBoards.map(board => (
+                        <Board
+                            key={board.id}
+                            title={board.title}
+                            category={board.category}
+                            author={board.author}
+                        />
+                    ))}
+                </div>
+      </div>
+
+
+
+      {/* <div className="b">
         <div className="boardGrid">
             {
             Object.entries(boards).map((board) => (
@@ -39,7 +95,7 @@ const BoardPage = () => {
             ))
             }
         </div>
-      </div>
+      </div> */}
       <Footer />
     </div>
   )
