@@ -57,6 +57,41 @@ const addCardToBoard = async (board_id, cardData) => {
   return newCard;
 };
 
+const deleteCardFromBoard = async (board_id, card_id) => {
+  const board = await prisma.board.findUnique({
+    where: { board_id: parseInt(board_id) }
+  });
+
+  if (!board) {
+    throw new Error("Board not found");
+  }
+
+  const card = await prisma.card.findUnique({
+    where: { card_id: parseInt(card_id) }
+  });
+
+  if (!card) {
+    throw new Error("Card not found");
+  }
+
+  await prisma.card.delete({
+    where: { card_id: parseInt(card_id) }
+  });
+
+  return card;
+};
+
+const getCardsInBoard = async (board_id) => {
+  const cards = await prisma.card.findMany({
+    where: {
+      board_id: parseInt(board_id)
+    }
+  });
+  return cards;
+};
+
+
+
 module.exports = {
   getAllBoards,
   getBoardById,
@@ -64,5 +99,7 @@ module.exports = {
   updateBoard,
   deleteBoard,
   addCardToBoard,
+  deleteCardFromBoard,
+  getCardsInBoard
 };
 

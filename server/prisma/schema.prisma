@@ -28,6 +28,7 @@ model Card {
   author         String
   img_url        String
   board_id       Int      
+  upvotes        Int     @default(0)
 
   board          Board   @relation(fields: [board_id], references: [board_id], onDelete: Cascade)
 }

@@ -57,14 +57,54 @@ const deleteBoard = async (req, res) => {
   }
 };
 
-const addCards = async (req, res) => {
+//THIS WORKS BUT TRYING WITH THE LIKE
+/*const addCards = async (req, res) => {
   try {
     const newCard = await boardModel.addCardToBoard(req.params.board_id, req.body);
     res.status(200).json(newCard);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
+};*/
+
+
+const addCards = async (req, res) => {
+  try {
+    const { board_id } = req.params;
+    const cardData = {
+      ...req.body,
+      upvotes: 0  // Set initial upvotes to 0
+    };
+    const newCard = await boardModel.addCardToBoard(board_id, cardData);
+    res.status(200).json(newCard);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 };
+
+const deleteCards = async (req, res) => {
+  try {
+    const { board_id, card_id } = req.params;
+    const deletedCard = await boardModel.deleteCardFromBoard(board_id, card_id);
+    res.status(200).json(deletedCard);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+
+const getCardsIn = async (req, res) => {
+  try {
+    const { board_id } = req.params;
+    const cards = await boardModel.getCardsInBoard(board_id);
+    res.status(200).json(cards);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+
+
 
 module.exports = {
   getAllBoards,
@@ -73,4 +113,6 @@ module.exports = {
   updateBoard,
   deleteBoard,
   addCards,
+  deleteCards,
+  getCardsIn
 };

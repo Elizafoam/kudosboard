@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Card" ADD COLUMN     "upvotes" INTEGER NOT NULL DEFAULT 0;
