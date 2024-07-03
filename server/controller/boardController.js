@@ -68,13 +68,11 @@ const deleteBoard = async (req, res) => {
 };*/
 
 
+//trying 
 const addCards = async (req, res) => {
   try {
     const { board_id } = req.params;
-    const cardData = {
-      ...req.body,
-      upvotes: 0  // Set initial upvotes to 0
-    };
+    const cardData = req.body; // Assuming cardData is sent from the request body
     const newCard = await boardModel.addCardToBoard(board_id, cardData);
     res.status(200).json(newCard);
   } catch (error) {
