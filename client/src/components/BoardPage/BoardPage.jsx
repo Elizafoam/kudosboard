@@ -14,80 +14,73 @@ const BoardPage = () => {
     const [searchQuery, setSearchQuery] = useState("")
     const [selectedCategory, setSelectedCategory] = useState("")
 
+    // Modal & Create Board Stuff
+    const [modalOpen, setModalOpen] = useState(false);
+    const [title, setTitle] = useState("");
+    const [author, setAuthor] = useState("");
+    const [category, setCategory] = useState("");
+      
+    const handleOpenModal = () => {
+      setModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+      setModalOpen(false);
+      setTitle("");
+      setAuthor("");
+      setCategory("");
+    };
+
+    const handleSubmit = () => {
+      console.log("Submitting with:", { title, author, category });
+      addBoard();
+      handleCloseModal();
+    };
+
 
     const populateBoards = async (params = {}) => {
-        try {
-            const response = await axios.get("http://localhost:3000/boards", {params});
-            setBoards(response.data);
-
-        }
-        catch (error){
-            console.log("Error fetching boards", error);
-        }
+      try {
+        const response = await axios.get("http://localhost:3000/boards", {params});
+        setBoards(response.data);
+      }
+      catch (error){
+        console.log("Error fetching boards", error);
+      }
     }
 
     useEffect(() => {
-        populateBoards();
+      populateBoards();
         
-      }, []);
+      }, [title]);
 
     //handling the category filter
     const handleCategoryFilter = (category) => {
       setSelectedCategory(category);
     }  
 
-    //implementation of search
-
     const filteredBoards = boards.filter(board => {
       const matchesSearchQuery = board.title.toLowerCase().includes(searchQuery.toLowerCase());
       const matchesCategory = selectedCategory === "" || board.category.toLowerCase() === selectedCategory.toLowerCase();
       return matchesSearchQuery && matchesCategory;
   });
-  
-
-  
-  // Modal & Create Board Stuff
-  const [modalOpen, setModalOpen] = useState(false);
-  const [title, setTitle] = useState("");
-  const [author, setAuthor] = useState("");
-  const [category, setCategory] = useState("");
-    
-  const handleOpenModal = () => {
-        setModalOpen(true);
-    };
-
-    const handleCloseModal = () => {
-        setModalOpen(false);
-        setTitle("");
-        setAuthor("");
-        setCategory("");
-    };
-
-    const handleSubmit = () => {
-        console.log("Submitting with:", { title, author, category });
-        addBoard();
-        handleCloseModal();
-    };
 
     const addBoard = async () => {
-        try {
-            let boardData = {
-                title: title,
-                category: category,
-                author: author,
-            };
-            const response = await axios.post("http://localhost:3000/boards", boardData);
-            console.log("Board created:", response.data);
-        } catch (error) {
-            console.error("Error creating board:", error);
-        }
+      try {
+        let boardData = {
+          title: title,
+          category: category,
+          author: author,
+        };
+        const response = await axios.post("http://localhost:3000/boards", boardData);
+        console.log("Board created:", response.data);
+      } catch (error) {
+        console.error("Error creating board:", error);
+      }
     };
-    
-    
+  
 
   return (
     <div className='BoardPage'>
-      
       <NavBar />
       <Banner/>
       <h1 style={{ color: 'black' }}>BOARD PAGE</h1>
@@ -101,18 +94,17 @@ const BoardPage = () => {
           />
       </main>
       <button className='button-link' onClick={handleOpenModal}>Create New Board</button>
-            {modalOpen && (
-                <Modal
-                    onSubmit={handleSubmit}
-                    closeModal={handleCloseModal}
-                    title={title}
-                    setTitle={setTitle}
-                    author={author}
-                    setAuthor={setAuthor}
-                    category={category}
-                    setCategory={setCategory}
-                />
-            )}
+      {modalOpen && (
+        <Modal
+          onSubmit={handleSubmit}
+          closeModal={handleCloseModal}
+          title={title}
+          setTitle={setTitle}
+          author={author}
+          setAuthor={setAuthor}
+          category={category}
+          setCategory={setCategory}/>
+      )}
 
       <div className="category-buttons">
         <button className="category-button" onClick={() => handleCategoryFilter("")}>All</button>
@@ -122,31 +114,17 @@ const BoardPage = () => {
         <button className="category-button" onClick={() => handleCategoryFilter("Inspiration")}>Inspiration</button>
       </div>
 
-      {/* code below was added to perform the search functionality */}
       <div className="b">
-                <div className="boardGrid">
-                    {filteredBoards.map(board => (
-                        <Board
-                            key={board.board_id}
-                            title={board.title}
-                            category={board.category}
-                            author={board.author}
-                        />
-                    ))}
-                </div>
-      </div>
-
-
-
-      {/* <div className="b">
         <div className="boardGrid">
-            {
-            Object.entries(boards).map((board) => (
-                <Board title={board[1]["title"]} category={board[1]["category"]} author={board[1]["author"]}/>
-            ))
-            }
+          {filteredBoards.map(board => (
+            <Board
+              key={board.board_id}
+              title={board.title}
+              category={board.category}
+              author={board.author}/>
+          ))}
         </div>
-      </div> */}
+      </div>
       <Footer />
     </div>
   )
