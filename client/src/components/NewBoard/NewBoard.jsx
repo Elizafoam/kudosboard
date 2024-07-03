@@ -48,9 +48,7 @@ export const NewBoard = ({ onSubmit, closeModal, title, setTitle, author, setAut
             </div>
                 
             </form>
-
-        </div>
-        <div className="modal-footer">
+            <div className="modal-footer">
           <button
             type="submit"
             className="btn btn-submit"
@@ -59,6 +57,8 @@ export const NewBoard = ({ onSubmit, closeModal, title, setTitle, author, setAut
             Create New Board
           </button>
  
+        </div>
+
         </div>
       </div>
     </div>

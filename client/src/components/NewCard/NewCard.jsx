@@ -72,70 +72,81 @@ const NewCard = ({ onSubmit, closeModal, board_id }) => {
   };
 
   return (
-    <div className="overlay">
-      <div className="new-card-form">
-        <button className="close-btn" onClick={closeModal}>
-          X
-        </button>
-        <h2>Create a New Card</h2>
-        <input
-          type="text"
-          placeholder="Enter card title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          placeholder="Enter card description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Search GIFs..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <button className="search-button" type="button" onClick={handleSearch}>
-          Search
-        </button>
-        {gifOptions.length > 0 && (
-          <div className="gif-options">
-            {gifOptions.map((gifUrl) => (
-              <div className="gif-container" key={gifUrl}>
-                <img
-                  className="gif"
-                  src={gifUrl}
-                  alt="GIF"
-                  onClick={() => handleSelectGif(gifUrl)}
-                />
-              </div>
-            ))}
-          </div>
-        )}
-        <input
-          type="text"
-          placeholder="Enter GIF URL"
-          value={img_url}
-          onChange={(e) => setImgUrl(e.target.value)}
-        />
-        <button
-          className="copy-button"
-          type="button"
-          onClick={handleCopyGifUrl}
-        >
-          Copy GIF URL
-        </button>
-        <input
-          type="text"
-          placeholder="Enter author (optional)"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-        />
-        <button className="submit" onClick={handleSubmit}>
-          Create Card
-        </button>
+    <div>
+      <div className="modal">
+        <div className="modal-content">
+        <button className="close" onClick={closeModal}>X</button>
+        <h1>Create a New Card</h1>
+        <div>
+          <label htmlFor="title">Title: </label>
+            <input
+              type="text"
+              placeholder="Enter card title"
+              id="title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              required
+            />
+        </div>
+        <div>
+          <label htmlFor="description">Description: </label>
+          <input
+            type="text"
+            placeholder="Enter card description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </div>
+        <div>
+          <label htmlFor="GIFs">GIFs: </label>
+          <input
+            type="text"
+            placeholder="Search GIFs..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <button className="search-button" type="button" onClick={handleSearch}>Search</button>
+          {gifOptions.length > 0 && (
+            <div className="gif-options">
+              {gifOptions.map((gifUrl) => (
+                <div className="gif-container" key={gifUrl}>
+                  <img
+                    className="gif"
+                    src={gifUrl}
+                    alt="GIF"
+                    onClick={() => handleSelectGif(gifUrl)}
+                  />
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+        <div>
+          <input
+            type="text"
+            placeholder="Enter GIF URL"
+            value={img_url}
+            onChange={(e) => setImgUrl(e.target.value)}
+          />
+          <button
+            className="copy-button"
+            type="button"
+            onClick={handleCopyGifUrl}>
+            Copy GIF URL
+          </button>
+        </div>
+        <div>
+        </div> 
+          <input
+            type="text"
+            placeholder="Enter author (optional)"
+            value={author}
+            onChange={(e) => setAuthor(e.target.value)}
+          />
+          <button className="submit" onClick={handleSubmit}>
+            Create Card
+          </button>
+        </div>
       </div>
     </div>
   );

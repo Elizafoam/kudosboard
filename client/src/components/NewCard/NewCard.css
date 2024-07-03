@@ -11,14 +11,16 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.4);
+    color: black;
   }
+
   
   .modal-content {
     background-color: #fefefe;
     padding: 20px;
     border: 1px solid #888;
-    width: 60%;
     max-width: 600px;
+    border-radius: 2rem;
   }
   
   .close {
@@ -37,6 +39,25 @@
   }
 
 
+.modal * {
+  margin: 0.3rem;
+}
 
- 
-  
+.gif-options {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gif-options img {
+  width: 8rem;
+}
+
+
+.modal-content button {
+  background-color: #CB997E;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  border: none;
+  color: white;
+  display: inline;
+}

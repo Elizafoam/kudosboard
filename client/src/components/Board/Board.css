@@ -4,20 +4,27 @@
     align-items: center;
     text-align: center;
 
-    width: 200px;
+    width: 250px;
     gap: 0.5rem;
     padding-bottom: 0.75rem;
-    background-color: #a8bdbd;
+    background-color: #EDDCD2;
     border-radius: 2rem 2rem 1rem 1rem;
+    border: 1px solid #B7B7A4;
+    box-shadow: 0 4px 8px rgba(16, 15, 15, 0.1);
+    transition: transform 0.2s;
+}
+.board:hover{
+    transform: scale(1.05);
 }
 
 .board img {
-    border-radius: 1rem 1rem 0 0;
+    border-radius: 1rem 1rem 1rem 1rem;
     width: 200px;
 }
 
 .board * {
     margin: 0;
+    
 }
 
 .board .button {
@@ -26,9 +33,36 @@
 }
 
 .board button {
-    background-color: rgb(255, 117, 42);
-    padding: 0.4rem 1rem;
+    background-color: #CB997E;
+    padding: 0.6rem 1.2rem;
     border-radius: 0.5rem;
     border: none;
     color: white;
+    
+}
+
+.boardtitle{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 35px;
+    color: #5E5E5E;
+    font-weight: bold;
+    
+}
+
+.boardAuthor{
+    color: #57665A;
+    font-size: 20px;
+    font-weight: bold;
+    
+}
+
+.boardCategory{
+    color: #5E5E5E;
+    font-size: 25px;
+    font-weight: bold;
+    
+}
+
+.buttonTitle{
+    font-size: 15px;
 }

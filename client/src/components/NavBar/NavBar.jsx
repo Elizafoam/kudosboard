@@ -47,27 +47,6 @@ const NavBar = () => {
                 <h1 className='navtext'>KudoBoard</h1>
             </div>
       
-            <div className='search-box'>
-                <input type="text" placeholder='Search ...' />
-                <img src="src/assets/glass.png" alt="Search" className='search-icon' />
-            </div>
-            <div>
-            <div>
-            <button className='button-link' onClick={handleOpenModal}>Create New Board</button>
-            {modalOpen && (
-                <Modal
-                    onSubmit={handleSubmit}
-                    closeModal={handleCloseModal}
-                    title={title}
-                    setTitle={setTitle}
-                    author={author}
-                    setAuthor={setAuthor}
-                    category={category}
-                    setCategory={setCategory}
-                />
-            )}
-        </div>
-            </div>
         </nav>
     );
 };

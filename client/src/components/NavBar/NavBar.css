@@ -2,10 +2,6 @@
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-}
-
 nav {
   background-color: #003049;
   color: white;
@@ -91,7 +87,7 @@ nav {
   
   align-items: center;
   padding: 5px 20px;
-  background-color: #C1121F;
+  background-color: #0081a7;
   color: white;
   text-align: center;
   border: none;
