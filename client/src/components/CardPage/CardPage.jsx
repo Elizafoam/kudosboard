@@ -48,6 +48,9 @@ return (
   <div className='CardPage'>
     <NavBar />
     <Banner />
+    {/* <Link to="/">
+        <span className="back-arrow"></span>
+      </Link> */}
     <button className='button-link' onClick={handleOpenModal}>Create New Card</button>
     {modalOpen && (
       <NewCard

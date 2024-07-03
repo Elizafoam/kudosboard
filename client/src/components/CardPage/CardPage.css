@@ -1,0 +1,10 @@
+.CardGrid {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 1rem;
+    /* background-color: beige; */
+    padding: 2rem;
+    margin-top: 1rem;
+    border-radius: 2rem;
+}
