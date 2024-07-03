@@ -4,32 +4,30 @@
 
 Submitted by: **Evelyn Zhinin, Maria Perez Chaparro, Elizabeth Johnson**
 
-Deployed Application (optional): [Kudos Board Deployed Site](ADD_LINK_HERE)
-
 ### Application Features
 
 #### CORE FEATURES
 
-- [ ] **Home Page**
-  - [ ] Displays header, banner, search, board grid, and footer.
-  - [ ] Displays preview of all boards on initial page load.
-    - [ ] Boards previews should show an image/gif and board title.
-  - [ ] Users can click on a category (recent, celebration, thank you, inspiration) to filter the boards.
-    - [ ] Recent displays most recently created boards.
-    - [ ] Other categories display boards of that type.
-  - [ ] Users can search for a board by name.
-  - [ ] Users can click on a board to navigate to a new page containing that board.
-  - [ ] Users can create a new board.
-    - [ ] Boards should have a title, category, and author (optional).
-  - [ ] User can delete boards.
+- [x] **Home Page**
+  - [x] Displays header, banner, search, board grid, and footer.
+  - [x] Displays preview of all boards on initial page load.
+    - [x] Boards previews should show an image/gif and board title.
+  - [x] Users can click on a category (recent, celebration, thank you, inspiration) to filter the boards.
+    - [x] Recent displays most recently created boards.
+    - [x] Other categories display boards of that type.
+  - [x] Users can search for a board by name.
+  - [x] Users can click on a board to navigate to a new page containing that board.
+  - [x] Users can create a new board.
+    - [x] Boards should have a title, category, and author (optional).
+  - [x] User can delete boards.
   
-- [ ] **Board Page**
-  - [ ] Displays a list of all cards for a board.
-    -  [ ] Each card features a text message.
-    -  [ ] Each card features a gif found using the [GIPHY API](https://developers.giphy.com/docs/api/).
-    -  [ ] Users can optionally sign the card as the author.  
--   [ ] Cards can be upvoted.
--   [ ] Cards can be deleted.
+- [x] **Board Page**
+  - [x] Displays a list of all cards for a board.
+    -  [x] Each card features a text message.
+    -  [x] Each card features a gif found using the [GIPHY API](https://developers.giphy.com/docs/api/).
+    -  [x] Users can optionally sign the card as the author.  
+-   [x] Cards can be upvoted.
+-   [x] Cards can be deleted.
 
 
 #### STRETCH FEATURES
@@ -50,28 +48,25 @@ Deployed Application (optional): [Kudos Board Deployed Site](ADD_LINK_HERE)
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after adding walkthrough video)
-
-`ADD_EMBEDDED_CODE_HERE`
 
 ### Reflection
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+Yes, the labs and previous projects helped in setting us up for success in tackling the kudos project. Such as the flixster project and student store helped us in completing the kudos project. 
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+If we had more time, we would have added the stretch features such as comments and user accounts. 
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+The project demo went well, we were able to efficiently take turns to talk about the aspects of our website. 
 
 ### Open-source libraries used
 
-- Add any links to open-source libraries used in your project.
+
 
 ### Shout out
 
-Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+Give a shout out to the instructors! 
