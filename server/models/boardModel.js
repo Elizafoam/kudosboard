@@ -27,12 +27,14 @@ const updateBoard = async (board_id, boardData) => {
     data: boardData,
   });
 };
-
+//WORKS FOR POSTMAN BUT NOT THE CODE 
 const deleteBoard = async (board_id) => {
   return prisma.board.delete({
     where: { board_id: parseInt(board_id) }
   });
 };
+
+
 
 const addCardToBoard = async (board_id, cardData) => {
   const board = await prisma.board.findUnique({
