@@ -39,10 +39,10 @@ export const NewBoard = ({ onSubmit, closeModal, title, setTitle, author, setAut
                 <label htmlFor="category">Category</label>
                 <select id="category" value={category} onChange={(e) => setCategory(e.target.value)}>
                     <option value="defaultOption">Select a Category</option>
-                    <option value="recent">Recent</option>
-                    <option value="celebration">Celebration</option>
-                    <option value="thankYou">Thank You</option>
-                    <option value="inspiration">Inspiration</option>
+                    <option value="Recent">Recent</option>
+                    <option value="Celebration">Celebration</option>
+                    <option value="Thank You">Thank You</option>
+                    <option value="Inspiration">Inspiration</option>
                 </select>
 
             </div>
