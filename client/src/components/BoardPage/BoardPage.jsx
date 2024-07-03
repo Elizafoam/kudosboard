@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import './BoardPage.css';
 import axios from "axios";

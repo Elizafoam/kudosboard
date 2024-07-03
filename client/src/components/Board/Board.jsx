@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-//import React from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import CardPage from '../CardPage/CardPage';
 import axios from "axios";
 import "./Board.css";
 
@@ -23,14 +24,16 @@ const Board = ({ board_id, title, category, author }) => {
   
     return (
       <div className="board">
-        <img src="/src/assets/spongebob.gif" alt="card image" />
-        <h1>{title}</h1>
-        <p>{category}</p>
-        <p>By: {author}</p>
-        <div className="button">
-          <button>View Board</button>
-          <button onClick={handleDelete}>Delete Board</button>
-        </div>
+          <img src="/src/assets/spongebob.gif" alt="card image" />
+          <h1>{title}</h1>
+          <p>{category}</p>
+          <p>By: {author}</p>
+          <div className="button">
+              <Link to={`boards/${board_id}`} onClick={() => console.log("switch")}>
+                <button>View Board</button>
+                </Link>
+            <button onClick={handleDelete}>Delete Board</button>
+          </div>
       </div>
     );
   };
