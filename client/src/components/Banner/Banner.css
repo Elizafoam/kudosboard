@@ -1,11 +1,16 @@
 .Banner {
     margin: auto;
-    padding: 18rem 10rem;
+    padding: 14rem 6rem;
     background-image: url("/src/assets/bannerpostcard.jpg");
     background-position: top;
     background-size: cover;
+    border-radius: 2rem;
+    margin-top: 1rem;
 }
 
-.Banner .text {
+.Banner {
     color: white;
+    font-size: 10rem;
+    font-weight: bolder;
+    text-align: center;
 }

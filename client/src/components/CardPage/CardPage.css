@@ -8,3 +8,21 @@
     margin-top: 1rem;
     border-radius: 2rem;
 }
+
+.back {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.cardButton {
+    margin-top: 1rem;
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}

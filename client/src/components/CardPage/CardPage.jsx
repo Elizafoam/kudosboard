@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios"
 import './CardPage.css';
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { useParams } from 'react-router-dom';
-import NavBar from '../NavBar/NavBar';
 import Banner from '../Banner/Banner';
 import Card from '../Card/Card';
 import Footer from '../Footer/Footer';
@@ -47,14 +45,9 @@ const CardPage = () => {
 
 return (
   <div className='CardPage'>
-    <Link to={"/"} onClick={() => console.log("switch")}>
-                <button>View Board</button>
-    </Link>
-    <NavBar />
+    
     <Banner />
-    {/* <Link to="/">
-        <span className="back-arrow"></span>
-      </Link> */}
+    <div className='cardButton'>
     <button className='button-link' onClick={handleOpenModal}>Create New Card</button>
     {modalOpen && (
       <NewCard
@@ -63,6 +56,7 @@ return (
         closeModal={handleCloseModal}
       />
     )}
+    </div>
 
     <div className='CardGrid'>
       {cards.map((card) => (
@@ -82,57 +76,3 @@ return (
 };
 
 export default CardPage;
-
-// import { useState } from 'react';
-// import './CardPage.css';
-// import { useParams } from 'react-router-dom';
-// import NavBar from '../NavBar/NavBar';
-// import Banner from '../Banner/Banner';
-// import Card from '../Card/Card';
-// import Footer from '../Footer/Footer';
-// import NewCard from '../NewCard/NewCard';
-// import axios from 'axios';
-
-// const CardPage = () => {
-//   const [modalOpen, setModalOpen] = useState(false);
-//   const [cards, setCards] = useState([]);
-//   const { boardId } = useParams();
-
-//   const handleOpenModal = () => {
-//     setModalOpen(true);
-//   };
-
-//   const handleCloseModal = () => {
-//     setModalOpen(false);
-//   };
-
-//   const handleAddCard = (newCard) => {
-//     setCards([...cards, newCard]);
-//     handleCloseModal();
-//   };
-
-//   return (
-//     <div className='CardPage'>
-//       <h1>Card</h1>
-//       <NavBar />
-//       <Banner />
-//       <button className='button-link' onClick={handleOpenModal}>Create New Card</button>
-//       {modalOpen && (
-//         <NewCard
-//           onSubmit={handleAddCard}
-//           closeModal={handleCloseModal}
-//           board_id={boardId}
-//         />
-//       )}
-//       <div className="CardGrid">
-//         {cards.map((card) => (
-//           <Card key={card.id} {...card} />
-//         ))}
-//       </div>
-//       <Footer />
-//     </div>
-//   )
-// }
-
-// export default CardPage;
-

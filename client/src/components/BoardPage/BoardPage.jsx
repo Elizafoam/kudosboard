@@ -82,7 +82,6 @@ const BoardPage = () => {
 
   return (
     <div className='BoardPage'>
-      <NavBar />
       <Banner/>
 
       <div className="board-container">
