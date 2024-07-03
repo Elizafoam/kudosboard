@@ -31,7 +31,8 @@ const Card = ({ title, description, img_url, author, card_id }) => {
 
   const handleDelete = async () => {
     try {
-      const response = await axios.delete(`http://localhost:3000/boards/${card_id}`);
+      console.log(card_id);
+      const response = await axios.delete(`http://localhost:3000/cards/${card_id}`);
       console.log("Card deleted:", response.data);
       setDeleted(true); // Update local state to reflect deletion
     } catch (error) {
