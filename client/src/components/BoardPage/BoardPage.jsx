@@ -119,6 +119,7 @@ const BoardPage = () => {
           {filteredBoards.map(board => (
             <Board
               key={board.board_id}
+              board_id={board.board_id}
               title={board.title}
               category={board.category}
               author={board.author}/>
