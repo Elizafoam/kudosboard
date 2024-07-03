@@ -69,4 +69,4 @@ The project demo went well, we were able to efficiently take turns to talk about
 
 ### Shout out
 
-Give a shout out to the instructors! 
+Shout out to the instructors! 
