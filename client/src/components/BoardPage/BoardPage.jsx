@@ -4,6 +4,7 @@ import axios from "axios";
 import NavBar from '../NavBar/NavBar'
 import Banner from '../Banner/Banner';
 import Footer from '../Footer/Footer';
+import Modal from '../NewBoard/NewBoard';
 import Board from "../Board/Board";
 
 const BoardPage = () => {
@@ -45,6 +46,42 @@ const BoardPage = () => {
   
 
   
+  // Modal & Create Board Stuff
+  const [modalOpen, setModalOpen] = useState(false);
+  const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
+  const [category, setCategory] = useState("");
+    
+  const handleOpenModal = () => {
+        setModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setModalOpen(false);
+        setTitle("");
+        setAuthor("");
+        setCategory("");
+    };
+
+    const handleSubmit = () => {
+        console.log("Submitting with:", { title, author, category });
+        addBoard();
+        handleCloseModal();
+    };
+
+    const addBoard = async () => {
+        try {
+            let boardData = {
+                title: title,
+                category: category,
+                author: author,
+            };
+            const response = await axios.post("http://localhost:3000/boards", boardData);
+            console.log("Board created:", response.data);
+        } catch (error) {
+            console.error("Error creating board:", error);
+        }
+    };
     
     
 
@@ -63,6 +100,20 @@ const BoardPage = () => {
           onChange={(e) => setSearchQuery(e.target.value)}
           />
       </main>
+      <button className='button-link' onClick={handleOpenModal}>Create New Board</button>
+            {modalOpen && (
+                <Modal
+                    onSubmit={handleSubmit}
+                    closeModal={handleCloseModal}
+                    title={title}
+                    setTitle={setTitle}
+                    author={author}
+                    setAuthor={setAuthor}
+                    category={category}
+                    setCategory={setCategory}
+                />
+            )}
+
       <div className="category-buttons">
         <button className="category-button" onClick={() => handleCategoryFilter("")}>All</button>
         <button className="category-button" onClick={() => handleCategoryFilter("Recent")}>Recent</button>
@@ -76,7 +127,7 @@ const BoardPage = () => {
                 <div className="boardGrid">
                     {filteredBoards.map(board => (
                         <Board
-                            key={board.id}
+                            key={board.board_id}
                             title={board.title}
                             category={board.category}
                             author={board.author}
