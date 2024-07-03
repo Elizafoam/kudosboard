@@ -46,7 +46,6 @@ const CardPage = () => {
 
 return (
   <div className='CardPage'>
-    <h1>Cards</h1>
     <NavBar />
     <Banner />
     <button className='button-link' onClick={handleOpenModal}>Create New Card</button>

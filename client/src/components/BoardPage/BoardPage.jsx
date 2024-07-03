@@ -84,16 +84,21 @@ const BoardPage = () => {
     <div className='BoardPage'>
       <NavBar />
       <Banner/>
-      <h1 style={{ color: 'black' }}>BOARD PAGE</h1>
+
+      <div className="board-container">
+      {/* <h1 style={{ color: 'black' }}>BOARD PAGE</h1> */}
       {/* the search function */}
-      <main className="search">
+      <div className="board-container2">
+      <main className="searchbox">
         <input
           type="text"
           placeholder="Search boards..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           />
+          <img src="src/assets/glass.png" alt="Search" className='search-icon' />
       </main>
+
       <button className='button-link' onClick={handleOpenModal}>Create New Board</button>
       {modalOpen && (
         <Modal
@@ -106,6 +111,7 @@ const BoardPage = () => {
           category={category}
           setCategory={setCategory}/>
       )}
+      </div>
 
       <div className="category-buttons">
         <button className="category-button" onClick={() => handleCategoryFilter("")}>All</button>
@@ -113,6 +119,7 @@ const BoardPage = () => {
         <button className="category-button" onClick={() => handleCategoryFilter("Celebration")}> Celebration</button>
         <button className="category-button" onClick={() => handleCategoryFilter("Thank You")}>Thank You</button>
         <button className="category-button" onClick={() => handleCategoryFilter("Inspiration")}>Inspiration</button>
+      </div>
       </div>
 
       <div className="b">
@@ -127,6 +134,8 @@ const BoardPage = () => {
           ))}
         </div>
       </div>
+      
+
       <Footer />
     </div>
   )
