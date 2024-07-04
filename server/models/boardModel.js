@@ -1,6 +1,7 @@
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
+//gets all the boards with prisma 
 const getAllBoards = async () => {
   return prisma.board.findMany({
     include: {
@@ -9,25 +10,29 @@ const getAllBoards = async () => {
   });
 };
 
+//gets the boards by id with prisma 
 const getBoardById = async (board_id) => {
   return prisma.board.findUnique({
     where: { board_id: parseInt(board_id) }
   });
 };
 
+//creates the boards with prisma 
 const createBoard = async (boardData) => {
   return prisma.board.create({
     data: boardData
   });
 };
 
+//updates the boards by id with prisma 
 const updateBoard = async (board_id, boardData) => {
   return prisma.board.update({
     where: { board_id: parseInt(board_id) },
     data: boardData,
   });
 };
-//WORKS FOR POSTMAN BUT NOT THE CODE 
+
+//deletes the boards by id with prisma 
 const deleteBoard = async (board_id) => {
   return prisma.board.delete({
     where: { board_id: parseInt(board_id) }
@@ -35,7 +40,7 @@ const deleteBoard = async (board_id) => {
 };
 
 
-
+// adds cards the boards by id with prisma 
 const addCardToBoard = async (board_id, cardData) => {
   const board = await prisma.board.findUnique({
     where: { board_id: parseInt(board_id) }
@@ -57,6 +62,7 @@ const addCardToBoard = async (board_id, cardData) => {
   return newCard;
 };
 
+//deletes the cards inside boards by id with prisma 
 const deleteCardFromBoard = async (board_id, card_id) => {
   const board = await prisma.board.findUnique({
     where: { board_id: parseInt(board_id) }
@@ -81,6 +87,7 @@ const deleteCardFromBoard = async (board_id, card_id) => {
   return card;
 };
 
+////gets the cards in the boards by id with prisma 
 const getCardsInBoard = async (board_id) => {
   const cards = await prisma.card.findMany({
     where: {
@@ -90,6 +97,7 @@ const getCardsInBoard = async (board_id) => {
   return cards;
 };
 
+//updatestheVotes in the cards in the boards by id with prisma 
 const upvoteCard = async (board_id, card_id) => {
   const updatedCard = await prisma.card.update({
     where: {

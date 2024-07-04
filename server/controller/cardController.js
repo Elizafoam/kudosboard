@@ -1,5 +1,6 @@
 const cardModel = require("../models/cardModel");
 
+//get all cards calling the model
 const getAllCards = async (req, res) => {
   try {
     const cards = await cardModel.getAllCards();
@@ -9,6 +10,7 @@ const getAllCards = async (req, res) => {
   }
 };
 
+//get all cards by id calling the model
 const getCardById = async (req, res) => {
   try {
     const card = await cardModel.getCardById(req.params.card_id);
@@ -22,6 +24,7 @@ const getCardById = async (req, res) => {
   }
 };
 
+//create all cards calling the model
 const createCard = async (req, res) => {
   try {
     const newCard = await cardModel.createCard(req.body);
@@ -31,6 +34,7 @@ const createCard = async (req, res) => {
   }
 };
 
+//update cards by id calling the model
 const updateCard = async (req, res) => {
   try {
     const updatedCard = await cardModel.updateCard(req.params.card_id, req.body);
@@ -44,6 +48,7 @@ const updateCard = async (req, res) => {
   }
 };
 
+//delete cards by id calling the model
 const deleteCard = async (req, res) => {
   try {
     const deletedCard = await cardModel.deleteCard(req.params.card_id);

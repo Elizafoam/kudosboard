@@ -1,5 +1,6 @@
 const boardModel = require("../models/boardModel");
 
+//get all boards calling the model
 const getAllBoards = async (req, res) => {
   try {
     const boards = await boardModel.getAllBoards();
@@ -9,6 +10,7 @@ const getAllBoards = async (req, res) => {
   }
 };
 
+//get all boards by id calling the model
 const getBoardById = async (req, res) => {
   try {
     const board = await boardModel.getBoardById(req.params.board_id);
@@ -22,6 +24,7 @@ const getBoardById = async (req, res) => {
   }
 };
 
+//create all boards calling the model
 const createBoard = async (req, res) => {
   try {
     const newBoard = await boardModel.createBoard(req.body);
@@ -31,6 +34,7 @@ const createBoard = async (req, res) => {
   }
 };
 
+//update all boards calling the model
 const updateBoard = async (req, res) => {
   try {
     const updatedBoard = await boardModel.updateBoard(req.params.board_id, req.body);
@@ -44,6 +48,7 @@ const updateBoard = async (req, res) => {
   }
 };
 
+//delete all boards calling the model
 const deleteBoard = async (req, res) => {
   try {
     const deletedBoard = await boardModel.deleteBoard(req.params.board_id);
@@ -57,18 +62,8 @@ const deleteBoard = async (req, res) => {
   }
 };
 
-//THIS WORKS BUT TRYING WITH THE LIKE
-/*const addCards = async (req, res) => {
-  try {
-    const newCard = await boardModel.addCardToBoard(req.params.board_id, req.body);
-    res.status(200).json(newCard);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-};*/
 
-
-//trying 
+//add cards to the board calling the modal
 const addCards = async (req, res) => {
   try {
     const { board_id } = req.params;
@@ -80,6 +75,7 @@ const addCards = async (req, res) => {
   }
 };
 
+//delete cards from the board calling the modal
 const deleteCards = async (req, res) => {
   try {
     const { board_id, card_id } = req.params;
@@ -90,7 +86,7 @@ const deleteCards = async (req, res) => {
   }
 };
 
-
+//get all cards to the board calling the modal
 const getCardsIn = async (req, res) => {
   try {
     const { board_id } = req.params;
@@ -101,6 +97,7 @@ const getCardsIn = async (req, res) => {
   }
 };
 
+//update cards to the board calling the modal
 const upvoteCardNow = async (req, res) => {
   try {
     const { board_id, card_id } = req.params;
