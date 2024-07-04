@@ -48,6 +48,7 @@ Submitted by: **Evelyn Zhinin, Maria Perez Chaparro, Elizabeth Johnson**
 
 ### Walkthrough Video
 
+![Walkthrough](./client/src/assets/Unit5Vid1.gif)
 
 ### Reflection
 
@@ -64,7 +65,6 @@ If we had more time, we would have added the stretch features such as comments a
 The project demo went well, we were able to efficiently take turns to talk about the aspects of our website. 
 
 ### Open-source libraries used
-
 
 
 ### Shout out
