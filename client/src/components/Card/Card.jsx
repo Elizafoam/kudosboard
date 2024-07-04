@@ -1,26 +1,3 @@
-// import React from "react";
-// import "./Card.css";
-
-// const Card = ({title, description, img_url, author}) => {
-
-    
-//     return (
-//         <div className="Card">
-//             {/* <img src="/src/assets/spongebob.gif" alt="card image" /> */}
-//             <h1>{title}</h1>
-//             <p>{description}</p>
-//             <img src={img_url} alt="GIF"/>
-//             <p>{author}</p>
-//             <div className="button">
-//                 <button>Upvote</button>
-//                 <button>Delete</button>
-//             </div>
-//         </div>
-//     )
-// }
-
-// export default Card;
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Card.css";

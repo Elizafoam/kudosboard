@@ -85,8 +85,6 @@ const BoardPage = () => {
       <Banner/>
 
       <div className="board-container">
-      {/* <h1 style={{ color: 'black' }}>BOARD PAGE</h1> */}
-      {/* the search function */}
       <div className="board-container2">
       <main className="searchbox">
         <input

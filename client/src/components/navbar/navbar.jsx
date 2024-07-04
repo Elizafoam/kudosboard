@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import './NavBar.css';
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Modal from '../NewBoard/NewBoard';
-import axios from 'axios';
 
 const NavBar = () => {
     return (
